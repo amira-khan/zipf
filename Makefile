@@ -1,4 +1,4 @@
-.PHONY: all clean help settings
+.PHONY: all clean help settings results
 
 COUNT=bin/countwords.py
 COLLATE=bin/collate.py
@@ -9,6 +9,9 @@ SUMMARY=bin/book_summary.sh
 
 ## all : regenerate all results.
 all : results/collated.png
+
+## results : regenerate result for all books.
+results : ${RESULTS}
 
 ## results/collated.png: plot the collated results.
 results/collated.png : results/collated.csv
