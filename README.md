@@ -12,3 +12,13 @@ Data for this project are from Project Gutenberg: https://www.gutenberg.org/
 
 - Amira Khan <amira@zipf.org> @amira-khan
 - Sami Virtanen <sami@zipf.org> @sami-virtanen
+
+## Contributing
+
+Interested in contributing?
+Check out the [CONTRIBUTING.md](CONTRIBUTING.md)
+file for guidelines on how to contribute.
+Please note that this project is released with a
+[Contributor Code of Conduct](CONDUCT.md).
+By contributing to this project,
+you agree to abide by its terms.
