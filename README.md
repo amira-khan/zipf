@@ -6,6 +6,8 @@ and plot each word's rank versus its frequency.
 For more information on Zipf's Law,
 please see this article: https://en.wikipedia.org/wiki/Zipf%27s_law
 
+Data for this project are from Project Gutenberg: https://www.gutenberg.org/
+
 ## Contributors
 
 - Amira Khan <amira@zipf.org> @amira-khan
