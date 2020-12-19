@@ -5,5 +5,5 @@ and plot each word's rank versus its frequency.
 
 ## Contributors
 
-- Amira Khan <amira@zipf.org>
-- Sami Virtanen
+- Amira Khan <amira@zipf.org> @amira-khan
+- Sami Virtanen <sami@zipf.org> @sami-virtanen
