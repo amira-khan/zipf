@@ -5,6 +5,7 @@ COLLATE=bin/collate.py
 PLOT=bin/plotcounts.py
 DATA=$(wildcard data/*.txt)
 RESULTS=$(patsubst data/%.txt,results/%.csv,$(DATA))
+SUMMARY=bin/book_summary.sh
 
 ## all : regenerate all results.
 all : results/collated.png
@@ -20,6 +21,8 @@ results/collated.csv : $(RESULTS) $(COLLATE)
 
 ## results/%.csv : regenerate result for any book.
 results/%.csv : data/%.txt $(COUNT)
+	@bash $(SUMMARY) $< Title
+	@bash $(SUMMARY) $< Author
 	python $(COUNT) $< > $@
 
 ## clean : remove all generated files.
@@ -33,6 +36,7 @@ settings :
 	@echo RESULTS: $(RESULTS)
 	@echo COLLATE: $(COLLATE)
 	@echo PLOT: $(PLOT)
+	@echo SUMMARY: $(SUMMARY)
 
 ## help : show this message.
 help :
