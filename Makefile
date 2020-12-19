@@ -41,6 +41,7 @@ settings :
 	@echo PLOT: $(PLOT)
 	@echo SUMMARY: $(SUMMARY)
 
-## help : show this message.
+## help : show all commands.
 help :
-	@grep '^##' ./Makefile
+	@grep -h -E '^##' ${MAKEFILE_LIST} | sed -e 's/## //g' \
+	| column -t -s ':'
