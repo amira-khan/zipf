@@ -5,6 +5,7 @@ import numpy as np
 
 import plotcounts
 import countwords
+import collate
 
 
 def test_alpha():
@@ -60,3 +61,19 @@ def test_regression():
     actual_alpha = plotcounts.get_power_law_params(counts_array)
     expected_alpha = pytest.approx(1.087, abs=0.001)
     assert actual_alpha == expected_alpha
+
+
+def test_not_csv_error():
+       """Error handling test for csv check"""
+       fname = 'data/dracula.txt'
+       word_counts = Counter()
+       with pytest.raises(OSError):
+           collate.process_file(fname, word_counts)
+
+
+def test_missing_file_error():
+       """Error handling test for missing file"""
+       fname = 'fake_file.csv'
+       word_counts = Counter()
+       with pytest.raises(FileNotFoundError):
+           collate.process_file(fname, word_counts)
