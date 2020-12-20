@@ -1,5 +1,6 @@
 from collections import Counter
 
+import pytest
 import numpy as np
 
 import plotcounts
@@ -22,7 +23,7 @@ def test_alpha():
     max_freq = 600
     word_counts = np.floor(max_freq / np.arange(1, max_freq + 1))
     actual_alpha = plotcounts.get_power_law_params(word_counts)
-    expected_alpha = 1.0
+    expected_alpha = pytest.approx(1.0, abs=0.01)
     assert actual_alpha == expected_alpha
 
 
