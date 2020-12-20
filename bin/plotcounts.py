@@ -32,6 +32,8 @@ def get_power_law_params(word_counts):
       PLoS ONE 11(1): e0147073.
       https://doi.org/10.1371/journal.pone.0147073
     """
+    assert type(word_counts) == np.ndarray, \
+        'Input must be a numerical (numpy) array of word counts'
     mle = minimize_scalar(nlog_likelihood,
                           bracket=(1 + 1e-10, 4),
                           args=word_counts,
