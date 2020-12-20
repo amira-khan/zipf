@@ -1,0 +1,4 @@
+# Plot characteristics
+axes.labelsize   : x-large  ## fontsize of the x any y labels
+xtick.labelsize  : large    ## fontsize of the tick labels
+ytick.labelsize  : large    ## fontsize of the tick labels
