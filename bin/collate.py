@@ -25,7 +25,7 @@ def update_counts(reader, word_counts):
 def main(args):
     """Run the command line program."""
     log_lev = logging.DEBUG if args.verbose else logging.WARNING
-    logging.basicConfig(level=log_lev)
+    logging.basicConfig(level=log_lev, filename=args.logfile)
     word_counts = Counter()
     logging.info('Processing files...')
     for fname in args.infiles:
@@ -49,5 +49,8 @@ if __name__ == '__main__':
     parser.add_argument('-v', '--verbose',
                         action="store_true", default=False,
                         help="Set logging level to DEBUG")
+    parser.add_argument('-l', '--logfile',
+                        type=str, default='collate.log',
+                        help='Name of the log file')
     args = parser.parse_args()
     main(args)
