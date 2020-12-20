@@ -11,11 +11,6 @@ import logging
 import utilities as util
 
 
-ERRORS = {
-    'not_csv_suffix' : '{fname}: File must end in .csv',
-    }
-
-
 def update_counts(reader, word_counts):
     """Update word counts with data from another reader/file."""
     for word, count in csv.reader(reader):
@@ -26,7 +21,7 @@ def process_file(fname, word_counts):
     """Read file and update word counts"""
     logging.debug(f'Reading in {fname}...')
     if fname[-4:] != '.csv':
-        msg = ERRORS['not_csv_suffix'].format(
+        msg = util.ERRORS['not_csv_suffix'].format(
               fname=fname)
         raise OSError(msg)
     with open(fname, 'r') as reader:
