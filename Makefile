@@ -11,6 +11,10 @@ RESULTS=$(patsubst data/%.txt,results/%.csv,$(DATA))
 ## all : regenerate all results.
 all : results/collated.png
 
+## test-saveconfig : save plot configuration.
+test-saveconfig :
+	python $(PLOT) --saveconfig 
+
 ## results : regenerate result for all books.
 results : ${RESULTS}
 
