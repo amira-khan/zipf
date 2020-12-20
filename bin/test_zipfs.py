@@ -40,3 +40,13 @@ def test_word_count():
     with open('test_data/risk.txt', 'r') as reader:
         actual_result = countwords.count_words(reader)
     assert actual_result == expected_result
+
+
+def test_integration():
+    """Test the full word count to alpha parameter workflow."""
+    with open('test_data/random_words.txt', 'r') as reader:
+        word_counts_dict = countwords.count_words(reader)
+    counts_array = np.array(list(word_counts_dict.values()))
+    actual_alpha = plotcounts.get_power_law_params(counts_array)
+    expected_alpha = pytest.approx(1.0, abs=0.01)
+    assert actual_alpha == expected_alpha
