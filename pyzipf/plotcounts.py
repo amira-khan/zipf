@@ -83,6 +83,29 @@ def save_configuration(fname, params):
         yaml.dump(params, reader)
 
 
+def parse_command_line():
+    """Parse the command line for input arguments."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('infile', type=argparse.FileType('r'),
+                        nargs='?', default='-',
+                        help='Word count csv file name')
+    parser.add_argument('--outfile', type=str,
+                        default='plotcounts.png',
+                        help='Output image file name')
+    parser.add_argument('--xlim', type=float, nargs=2,
+                        metavar=('XMIN', 'XMAX'),
+                        default=None, help='X-axis limits')
+    parser.add_argument('--plotparams', type=str, default=None,
+                        help='matplotlib parameters (YAML file)')
+    parser.add_argument('--style', type=str, nargs='*',
+                        choices=plt.style.available,
+                        default=None, help='matplotlib style')
+    parser.add_argument('--saveconfig', type=str, default=None,
+                        help='Save configuration to file')
+    args = parser.parse_args()
+    return args
+    
+
 def main(args):
     """Run the command line program."""
     if args.style:
@@ -90,7 +113,6 @@ def main(args):
     set_plot_params(args.plotparams)
     if args.saveconfig:
         save_configuration(args.saveconfig, mpl.rcParams)
-        return
     df = pd.read_csv(args.infile, header=None,
                      names=('word', 'word_frequency'))
     df['rank'] = df['word_frequency'].rank(ascending=False,
@@ -119,22 +141,4 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('infile', type=argparse.FileType('r'),
-                        nargs='?', default='-',
-                        help='Word count csv file name')
-    parser.add_argument('--outfile', type=str,
-                        default='plotcounts.png',
-                        help='Output image file name')
-    parser.add_argument('--xlim', type=float, nargs=2,
-                        metavar=('XMIN', 'XMAX'),
-                        default=None, help='X-axis limits')
-    parser.add_argument('--plotparams', type=str, default=None,
-                        help='matplotlib parameters (YAML file)')
-    parser.add_argument('--style', type=str, nargs='*',
-                        choices=plt.style.available,
-                        default=None, help='matplotlib style')
-    parser.add_argument('--saveconfig', type=str, default=None,
-                        help='Save configuration to file')
-    args = parser.parse_args()
-    main(args)
+    main()
