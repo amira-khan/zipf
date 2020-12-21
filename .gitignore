@@ -3,3 +3,4 @@ __pycache__
 htmlcov/
 pyzipf.egg-info/
 dist/
+docs/_build/
