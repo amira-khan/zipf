@@ -106,8 +106,9 @@ def parse_command_line():
     return args
     
 
-def main(args):
+def main():
     """Run the command line program."""
+    args = parse_command_line()
     if args.style:
         plt.style.use(args.style)
     set_plot_params(args.plotparams)
