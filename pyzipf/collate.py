@@ -46,8 +46,9 @@ def parse_command_line():
     return args
 
 
-def main(args):
+def main():
     """Run the command line program."""
+    args=parse_command_line()
     log_lev = logging.DEBUG if args.verbose else logging.WARNING
     logging.basicConfig(level=log_lev, filename=args.logfile)
     word_counts = Counter()
