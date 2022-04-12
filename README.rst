@@ -56,7 +56,7 @@ Contributors
 
 - Amira Khan <amira@zipf.org> @amira-khan
 - Sami Virtanen <sami@zipf.org> @sami-virtanen
-- wss
+- wss <wss@zipf.org> @wss-vr
 
 Contributing
 ------------
